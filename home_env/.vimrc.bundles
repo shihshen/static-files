@@ -71,7 +71,7 @@
     " Snippets & AutoComplete
         if count(g:bundle_groups, 'snipmate')
             Bundle 'vim-scripts/snipMate'
-            Bundle 'vim-scripts/SuperTab-continued.'
+            Bundle 'ervandew/supertab'
         endif
 
     " Javascript
