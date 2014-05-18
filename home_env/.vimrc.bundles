@@ -30,14 +30,11 @@
 " Bundles {
     " Deps
         Bundle 'gmarik/vundle'
-        if executable('ack-grep')
-            let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+        if executable('ag')
+            Bundle 'rking/ag.vim'
+        endif
+        if executable('ack')
             Bundle 'mileszs/ack.vim'
-        elseif executable('ack')
-            Bundle 'mileszs/ack.vim'
-        elseif executable('ag')
-            Bundle 'mileszs/ack.vim'
-            let g:ackprg = 'ag --nogroup --nocolor --column'
         endif
 
     " list only the plugin groups you will use
