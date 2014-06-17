@@ -5,37 +5,23 @@
 " }
 
 " Environment {
-    " Basics {
-        set nocompatible        " must be first line
-        set background=dark     " Assume a dark background
-    " }
 
-    " Windows Compatible {
-        " On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
-        " across (heterogeneous) systems easier.
-        if has('win32') || has('win64')
-          set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
-        endif
+    " General {
+        set shortmess+=filmnrxoOtT      " abbrev. of messages (avoids 'hit enter')
     " }
-    "
+    
     " Setup Bundle Support {
     " The next three lines ensure that the ~/.vim/bundle/ system works
         filetype off
-        set rtp+=~/.vim/bundle/vundle
-        call vundle#rc()
+        set rtp+=~/.vim/bundle/Vundle.vim
+        call vundle#begin()
     " }
 
 " }
 
 " Bundles {
     " Deps
-        Bundle 'gmarik/vundle'
-        if executable('ag')
-            Bundle 'rking/ag.vim'
-        endif
-        if executable('ack')
-            Bundle 'mileszs/ack.vim'
-        endif
+        Plugin 'gmarik/Vundle.vim'
 
     " list only the plugin groups you will use
     if !exists('g:bundle_groups')
@@ -44,52 +30,57 @@
 
     " General
         if count(g:bundle_groups, 'general')
-            Bundle 'vim-scripts/The-NERD-tree'
-            Bundle 'altercation/vim-colors-solarized'
-            Bundle 'kien/ctrlp.vim'
-            Bundle 'vim-scripts/matchit.zip'
-            Bundle 'bling/vim-airline'
-            Bundle 'vim-scripts/CSApprox'
-            Bundle 'jistr/vim-nerdtree-tabs'
-            Bundle 'vim-scripts/Indent-Guides'
+            Plugin 'vim-scripts/The-NERD-tree'
+            Plugin 'altercation/vim-colors-solarized'
+            Plugin 'kien/ctrlp.vim'
+            Plugin 'vim-scripts/matchit.zip'
+            Plugin 'bling/vim-airline'
+            Plugin 'vim-scripts/CSApprox'
+            Plugin 'jistr/vim-nerdtree-tabs'
+            Plugin 'vim-scripts/Indent-Guides'
         endif
 
     " General Programming
         if count(g:bundle_groups, 'programming')
-            Bundle 'vim-scripts/checksyntax-B'
-            Bundle 'vim-scripts/EasyGrep'
-            Bundle 'vim-scripts/DirDiff.vim'
+            Plugin 'scrooloose/syntastic'
+            Plugin 'vim-scripts/EasyGrep'
+            Plugin 'vim-scripts/DirDiff.vim'
             if executable('ctags')
-                Bundle 'vim-scripts/Tagbar'
-                Bundle 'vim-scripts/SrcExpl'
+                Plugin 'vim-scripts/Tagbar'
+                Plugin 'vim-scripts/SrcExpl'
+            endif
+            if executable('ag')
+                Plugin 'rking/ag.vim'
+            endif
+            if executable('ack')
+                Plugin 'mileszs/ack.vim'
             endif
         endif
 
     " Snippets & AutoComplete
         if count(g:bundle_groups, 'snipmate')
-            Bundle 'vim-scripts/snipMate'
-            Bundle 'ervandew/supertab'
+            Plugin 'vim-scripts/snipMate'
+            Plugin 'ervandew/supertab'
         endif
 
     " Javascript
         if count(g:bundle_groups, 'javascript')
-            Bundle 'marijnh/tern_for_vim'
+            Plugin 'maksimr/vim-jsbeautify'
+            Plugin 'marijnh/tern_for_vim'
         endif
 
     " HTML
         if count(g:bundle_groups, 'html')
-            Bundle 'amirh/HTML-AutoCloseTag'
-            Bundle 'hail2u/vim-css3-syntax'
+            Plugin 'amirh/HTML-AutoCloseTag'
+            Plugin 'hail2u/vim-css3-syntax'
         endif
 
     " Misc
         if count(g:bundle_groups, 'misc')
-            Bundle 'tpope/vim-fugitive'
+            Plugin 'tpope/vim-fugitive'
         endif
-" }
-
-" General {
-    " set autowrite                  " automatically write a file when leaving a modified buffer
-    set shortmess+=filmnrxoOtT      " abbrev. of messages (avoids 'hit enter')
+    
+" End Bundle Support
+call vundle#end()
 " }
 
