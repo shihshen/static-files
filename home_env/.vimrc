@@ -235,6 +235,37 @@
         let g:SrcExpl_updateTagsKey = "<F5>"
     " }
 
+    " Unite.vim {
+        nnoremap <C-p> :Unite -start-insert file_rec/async<CR>
+        nnoremap <SPACE>/ :Unite -no-quit -keep-focus grep:.<CR>
+        if executable('ag')
+            " Use ag in unite grep source.
+            let g:unite_source_grep_command = 'ag'
+            let g:unite_source_grep_default_opts =
+            \ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
+            \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+            let g:unite_source_grep_recursive_opt = ''
+        elseif executable('ack-grep')
+            " Use ack in unite grep source.
+            let g:unite_source_grep_command = 'ack-grep'
+            let g:unite_source_grep_default_opts =
+            \ '-i --no-heading --no-color -k -H'
+            let g:unite_source_grep_recursive_opt = ''
+        endif
+    " }
+
+    " EasyGrep {
+        let g:EasyGrepRecursive = 1
+    " }
+
+    " FuzzyFinder {
+        " FuzzyFinder is faster than Unite on finding files but only works
+        " with ruby and terminal
+        if executable('ruby') && !has ('gui')
+            nnoremap <C-p> :FZF<CR>
+        endif
+    " }
+
     " NerdTree {
         map <C-a> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
         map <leader>e :NERDTreeFind<CR>
@@ -248,25 +279,6 @@
         let g:nerdtree_tabs_open_on_gui_startup=0
         let g:NERDTreeDirArrows=0
     " }
-
-    " ctrlp {
-        let g:ctrlp_working_path_mode = 'ra'
-        let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\.git$\|\.hg$\|\.svn$',
-            \ 'file': '\.exe$\|\.so$\|\.dll$' }
-
-        let g:ctrlp_user_command = {
-            \ 'types': {
-                \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
-                \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-            \ },
-            \ 'fallback': 'find %s -type f'
-        \ }
-    "}
-
-    " EasyGrep {
-        let g:EasyGrepRecursive = 1
-    "}
 
     " TagBar {
         nnoremap <silent> <leader>tt :TagbarToggle<CR>
@@ -305,21 +317,6 @@
         if &term == 'xterm' || &term == 'screen'
             set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
         endif
-        "set term=builtin_ansi       " Make arrow and other keys work
     endif
-
-" }
-
-" Functions {
-
-    " UnBundle {
-    function! UnBundle(arg, ...)
-      let bundle = vundle#config#init_bundle(a:arg, a:000)
-      call filter(g:bundles, 'v:val["name_spec"] != "' . a:arg . '"')
-    endfunction
-
-    com! -nargs=+         UnBundle
-    \ call UnBundle(<args>)
-    " }
 
 " }
