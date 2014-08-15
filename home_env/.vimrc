@@ -258,14 +258,6 @@
         let g:EasyGrepRecursive = 1
     " }
 
-    " FuzzyFinder {
-        " FuzzyFinder is faster than Unite on finding files but only works
-        " with ruby and terminal
-        if executable('ruby') && !has ('gui')
-            nnoremap <C-p> :FZF<CR>
-        endif
-    " }
-
     " NerdTree {
         map <C-a> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
         map <leader>e :NERDTreeFind<CR>
