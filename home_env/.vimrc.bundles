@@ -24,7 +24,7 @@
 
     " list only the plugin groups you will use
     if !exists('g:bundle_groups')
-        let g:bundle_groups=['general', 'programming', 'snipmate', 'misc']
+        let g:bundle_groups=['general', 'programming', 'snipmate', 'html', 'misc']
     endif
 
     " General
@@ -49,6 +49,9 @@
             \    },
             \ }
             NeoBundle 'vim-scripts/EasyGrep'
+            if executable('ruby')
+                NeoBundle 'junegunn/fzf'
+            endif
             NeoBundle 'scrooloose/syntastic'
             NeoBundle 'vim-scripts/DirDiff.vim'
             if executable('ctags')
@@ -63,9 +66,14 @@
             NeoBundle 'ervandew/supertab'
         endif
 
+    " HTML
+        if count(g:bundle_groups, 'html')
+            NeoBundle 'amirh/HTML-AutoCloseTag'
+            NeoBundle 'hail2u/vim-css3-syntax'
+        endif
+
     " Misc
         if count(g:bundle_groups, 'misc')
-            NeoBundle 'tpope/vim-fugitive'
         endif
     
 " End Bundle Support
