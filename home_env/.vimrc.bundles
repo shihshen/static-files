@@ -1,7 +1,7 @@
 " Modeline and Notes {
-" vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
-"
 "   This is the personal .vimrc.bundles file inspired by Steve Francia(http://spf13.com).
+"   Before using bundles, you need to install neobundle first: 
+"   curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 " }
 
 " Environment {
