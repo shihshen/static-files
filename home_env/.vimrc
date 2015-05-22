@@ -106,7 +106,7 @@
     set autoindent                  " Indent at the same level of the previous line
     set shiftwidth=2                " Use indents of 2 spaces
     set expandtab                   " Tabs are spaces, not tabs
-    set tabstop=2                   " An indentation every 4 columns
+    set tabstop=2                   " An indentation every 2 columns
     set softtabstop=2               " Let backspace delete indent
     set pastetoggle=<F6>            " pastetoggle (sane indentation on pastes)
 
@@ -242,12 +242,11 @@
             " Use ag in unite grep source.
             let g:unite_source_grep_command = 'ag'
             let g:unite_source_grep_default_opts =
-            \ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
-            \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+            \ '-i --line-numbers --nocolor --nogroup --hidden '
             let g:unite_source_grep_recursive_opt = ''
-        elseif executable('ack-grep')
+        elseif executable('ack')
             " Use ack in unite grep source.
-            let g:unite_source_grep_command = 'ack-grep'
+            let g:unite_source_grep_command = 'ack'
             let g:unite_source_grep_default_opts =
             \ '-i --no-heading --no-color -k -H'
             let g:unite_source_grep_recursive_opt = ''
@@ -256,6 +255,18 @@
 
     " EasyGrep {
         let g:EasyGrepRecursive = 1
+    " }
+
+    " FuzzyFinder {
+        " FuzzyFinder is faster than Unite on finding files but only works
+        " with ruby and terminal
+        if executable('ruby') && !has ('gui')
+            nnoremap <C-p> :FZF<CR>
+        endif
+    " }
+  
+    " Syntastic {
+        au BufRead,BufNewFile *.json set filetype=json
     " }
 
     " NerdTree {
@@ -307,7 +318,7 @@
         endif
     else
         if &term == 'xterm' || &term == 'screen'
-            set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
+            set t_Co=256            " Enable 256 colors to make xterm vim shine
         endif
     endif
 
