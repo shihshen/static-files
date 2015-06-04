@@ -1,0 +1,7 @@
+vim can bueatify js, json, html and css well, but it requires more support from the system (make, node and etc.). Which means it could be system dependent (.editorconfig).
+Here they are:
+
+npm install js-beautify jsonlint -g
+cp .editorconfig ~/
+cp .vimrc ~/
+cp .vimrc.bundle ~/
