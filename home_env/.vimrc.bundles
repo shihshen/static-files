@@ -50,9 +50,7 @@
             \    },
             \ }
             NeoBundle 'vim-scripts/EasyGrep'
-            if executable('ruby')
-                NeoBundle 'junegunn/fzf'
-            endif
+            NeoBundle 'junegunn/fzf'
             NeoBundle 'scrooloose/syntastic'
             NeoBundle 'vim-scripts/DirDiff.vim'
             if executable('ctags')

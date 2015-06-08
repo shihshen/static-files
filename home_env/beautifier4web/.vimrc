@@ -236,7 +236,7 @@
     " }
 
     " Unite.vim {
-        nnoremap <C-p> :Unite -start-insert file_rec/async<CR>
+        "nnoremap <C-p> :Unite -start-insert file_rec/async<CR>
         nnoremap <SPACE>/ :Unite -no-quit -keep-focus grep:.<CR>
         if executable('ag')
             " Use ag in unite grep source.
@@ -258,11 +258,8 @@
     " }
 
     " FuzzyFinder {
-        " FuzzyFinder is faster than Unite on finding files but only works
-        " with ruby and terminal
-        if executable('ruby') && !has ('gui')
-            nnoremap <C-p> :FZF<CR>
-        endif
+        " FuzzyFinder is faster than Unite on finding files
+        nnoremap <C-p> :FZF<CR>
     " }
   
     " Syntastic {
