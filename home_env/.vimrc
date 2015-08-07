@@ -284,6 +284,10 @@
         nnoremap <silent> <leader>tt :TagbarToggle<CR>
     "}
 
+    " autoformat {
+        noremap <c-f> :Autoformat<cr>
+    " }
+
     " indent_guides {
         if !exists('g:no_indent_guides_autocolor')
             let g:indent_guides_auto_colors = 1
