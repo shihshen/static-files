@@ -24,17 +24,16 @@
 
     " list only the plugin groups you will use
     if !exists('g:bundle_groups')
-        let g:bundle_groups=['general', 'programming', 'snipmate', 'misc']
+        let g:bundle_groups=['general', 'programming', 'misc']
     endif
 
     " General
         if count(g:bundle_groups, 'general')
-            NeoBundle 'vim-scripts/The-NERD-tree'
+            NeoBundle 'scrooloose/nerdtree'
             NeoBundle 'altercation/vim-colors-solarized'
             NeoBundle 'vim-scripts/matchit.zip'
             NeoBundle 'bling/vim-airline'
             NeoBundle 'jistr/vim-nerdtree-tabs'
-            NeoBundle 'vim-scripts/Indent-Guides'
         endif
 
     " General Programming
@@ -49,21 +48,20 @@
             \     'unix' : 'gmake',
             \    },
             \ }
-            NeoBundle 'vim-scripts/EasyGrep'
+            NeoBundle 'dkprice/vim-easygrep'
             NeoBundle 'junegunn/fzf'
             NeoBundle 'scrooloose/syntastic'
             NeoBundle 'Chiel92/vim-autoformat'
-            NeoBundle 'vim-scripts/DirDiff.vim'
-            if executable('ctags')
-                NeoBundle 'vim-scripts/Tagbar'
-                NeoBundle 'vim-scripts/SrcExpl'
-            endif
-        endif
-
-    " Snippets & AutoComplete
-        if count(g:bundle_groups, 'snipmate')
-            NeoBundle 'vim-scripts/snipMate'
+            NeoBundle 'MarcWeber/vim-addon-mw-utils'
+            NeoBundle 'tomtom/tlib_vim'
+            NeoBundle 'garbas/vim-snipmate'
+            NeoBundle 'honza/vim-snippets'
             NeoBundle 'ervandew/supertab'
+            NeoBundle 'will133/vim-dirdiff'
+            if executable('ctags')
+                NeoBundle 'majutsushi/tagbar'
+                NeoBundle 'wesleyche/SrcExpl'
+            endif
         endif
 
     " Misc
