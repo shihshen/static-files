@@ -198,10 +198,6 @@
     " Adjust viewports to the same size
     map <Leader>= <C-w>=
 
-    " Map <Leader>ff to display all lines with keyword under cursor
-    " and ask which one to jump to
-    nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
-
     " Map <leader>fr to find and replace all words under the cursor in this file with 's'
     nmap <Leader>fr :%s/\<<C-r><C-w>\>/s/gc
 
@@ -221,12 +217,6 @@
 
     " Ctags {
         set tags=./tags;/,~/.vimtags
-    " }
-
-    " AutoCloseTag {
-        " Make it so AutoCloseTag works for xml and xhtml files as well
-        au FileType xhtml,xml ru ftplugin/html/autoclosetag.vim
-        nmap <Leader>ac <Plug>ToggleAutoCloseMappings
     " }
 
     " SrcExpl {
@@ -286,18 +276,6 @@
 
     " autoformat {
         noremap <c-f> :Autoformat<cr>
-    " }
-
-    " indent_guides {
-        if !exists('g:no_indent_guides_autocolor')
-            let g:indent_guides_auto_colors = 1
-        else
-            " For some colorschemes, autocolor will not work (eg: 'desert', 'ir_black')
-            autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#212121 ctermbg=3
-            autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#404040 ctermbg=4
-        endif
-        let g:indent_guides_start_level = 2
-        let g:indent_guides_guide_size = 1
     " }
     endif
 
