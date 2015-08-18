@@ -50,16 +50,9 @@
             \ }
             NeoBundle 'dkprice/vim-easygrep'
             NeoBundle 'junegunn/fzf'
-            
             NeoBundle 'scrooloose/syntastic'
             NeoBundle 'Chiel92/vim-autoformat'
-            NeoBundle 'MarcWeber/vim-addon-mw-utils'
-            NeoBundle 'tomtom/tlib_vim'
-            
-            NeoBundle 'garbas/vim-snipmate'
-            NeoBundle 'honza/vim-snippets'
             NeoBundle 'ervandew/supertab'
-            
             NeoBundle 'will133/vim-dirdiff'
             if executable('ctags')
                 NeoBundle 'majutsushi/tagbar'
