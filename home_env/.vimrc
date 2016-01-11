@@ -115,11 +115,6 @@
 
 " Key (re)Mappings {
 
-    " Easier entering commands
-    nnoremap ; :
-    " Easier creating tabs
-    map <C-T> :tabnew<CR>
-
     " The default leader is '\', but many people prefer ',' as it's in a standard
     " location. To override this behavior and set it back to '\' (or any other
     " character) add the following let g:leader='\'
@@ -128,6 +123,11 @@
     else
         let mapleader=g:leader
     endif
+
+    " Easier entering commands
+    nnoremap ; :
+    " Easier creating tabs
+    map <leader>t :tabnew<CR>
 
     " Easier moving in tabs
     " The lines conflict with the default digraph mapping of <C-K>
@@ -197,10 +197,10 @@
     cmap w!! w !sudo tee % >/dev/null
 
     " Adjust viewports to the same size
-    map <Leader>= <C-w>=
+    map <leader>= <C-w>=
 
     " Map <leader>fr to find and replace all words under the cursor in this file with 's'
-    nmap <Leader>fr :%s/\<<C-r><C-w>\>/s/gc
+    nmap <leader>fr :%s/\<<C-r><C-w>\>/s/gc
 
     " Easier horizontal scrolling
     map zl zL
