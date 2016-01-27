@@ -129,6 +129,9 @@
     " Easier creating tabs
     map <leader>t :tabnew<CR>
 
+    " Easier trimming white spaces
+    map <leader>tr :%s/\s\+$//<CR>
+
     " Easier moving in tabs
     " The lines conflict with the default digraph mapping of <C-K>
     " If you prefer that functionality, add let g:no_easyWindows = 1
@@ -252,7 +255,7 @@
         " FuzzyFinder is faster than Unite on finding files
         nnoremap <C-p> :FZF<CR>
     " }
-  
+
     " Syntastic {
         au BufRead,BufNewFile *.json set filetype=json
     " }
