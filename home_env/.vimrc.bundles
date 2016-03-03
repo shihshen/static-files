@@ -49,7 +49,6 @@
             \    },
             \ }
             NeoBundle 'dkprice/vim-easygrep'
-            NeoBundle 'junegunn/fzf'
             NeoBundle 'scrooloose/syntastic'
             NeoBundle 'Chiel92/vim-autoformat'
             NeoBundle 'ervandew/supertab'
