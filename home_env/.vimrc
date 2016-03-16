@@ -229,7 +229,7 @@
         let g:SrcExpl_updateTagsKey = "<F5>"
     " }
 
-    " Unite.vim {
+    " Unite.vim { (<C-l> for refreshing cache
         nnoremap <C-p> :Unite -start-insert file_rec/async<CR>
         call unite#filters#matcher_default#use(['matcher_fuzzy'])
         call unite#filters#sorter_default#use(['sorter_rank'])
