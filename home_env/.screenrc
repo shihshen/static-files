@@ -1,0 +1,38 @@
+vbell off
+
+hardstatus alwayslastline “%{=b}%{G} %{b}%w %=%{kG}%C%A %D,%d/%m/%y”
+shelltitle “Shell”
+
+defscrollback 5024
+
+escape ^Bb
+# Look and feel
+caption always “%{= 2m}%{+b w}Screen: %n | %h %=%t %D %d/%m/%y %c:%s”
+hardstatus alwayslastline 
+# Very nice tabbed colored hardstatus line
+hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW}|%{KY}%101`%{KW}|%D %M %d %Y%{= Kc} %C%A%{-}'
+
+# Our warning of activity
+activity “Activity in %t(%n)”
+
+# Left Right arrow key mods
+bindkey ^[[1;5D prev
+bindkey ^[[1;5C next
+
+autodetach      on
+
+# pgup pgdown
+termcapinfo xterm*|rxvt* ‘ti@:te@’
+
+bind ‘K’ kill
+
+msgwait 15
+
+# termcap stuff
+#termcapinfo xterm     ti@:te@
+# make the cursor show up in red:
+#termcapinfo linux “ve=\E[?25h\E[?17;0;64c”
+
+bind = resize =
+bind + resize +1
+bind – resize -1
