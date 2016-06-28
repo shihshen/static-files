@@ -1,7 +1,6 @@
 vbell off
 
-hardstatus alwayslastline “%{=b}%{G} %{b}%w %=%{kG}%C%A %D,%d/%m/%y”
-shelltitle “Shell”
+shelltitle Shell
 
 defscrollback 5024
 
