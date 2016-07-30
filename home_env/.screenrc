@@ -4,7 +4,7 @@ shelltitle Shell
 
 defscrollback 5024
 
-escape ^Bb
+escape ^\\
 # Look and feel
 caption always “%{= 2m}%{+b w}Screen: %n | %h %=%t %D %d/%m/%y %c:%s”
 hardstatus alwayslastline 
