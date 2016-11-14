@@ -6,10 +6,6 @@
 
 " Environment {
 
-    " General {
-        set shortmess+=filmnrxoOtT      " abbrev. of messages (avoids 'hit enter')
-    " }
-
     " Setup NeoBundle Support {
     " The next three lines ensure that the ~/.vim/bundle/ system works
         filetype off
