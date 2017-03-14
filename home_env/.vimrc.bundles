@@ -27,7 +27,6 @@
         if count(g:bundle_groups, 'general')
             NeoBundle 'scrooloose/nerdtree'
             NeoBundle 'altercation/vim-colors-solarized'
-            NeoBundle 'vim-scripts/matchit.zip'
             NeoBundle 'bling/vim-airline'
             NeoBundle 'jistr/vim-nerdtree-tabs'
         endif
