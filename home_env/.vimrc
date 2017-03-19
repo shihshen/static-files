@@ -1,31 +1,7 @@
-" Modeline and Notes {
-" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
-"
-"   This is the personal .vimrc file inspired by Steve Francia(http://spf13.com).
-" }
-
 " Environment {
 
     " Basics {
         set nocompatible        " Must be first line
-    " }
-
-    " Windows Compatible {
-        " On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
-        " across (heterogeneous) systems easier.
-        if has('win32') || has('win64')
-          set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
-        endif
-    " }
-
-" }
-
-" Bundles {
-
-    " Use bundles config {
-        if filereadable(expand("~/.vimrc.bundles"))
-            source ~/.vimrc.bundles
-        endif
     " }
 
 " }
@@ -33,74 +9,13 @@
 " General {
 
     set background=dark         " Assume a dark background
-    if !has('gui')
-        "set term=$TERM          " Make arrow and other keys work
-    endif
     filetype plugin indent on   " Automatically detect file types.
     syntax on                   " Syntax highlighting
     set noswapfile              " Disable swap file.
-    set mousehide               " Hide the mouse cursor while typing
     scriptencoding utf-8
-    set encoding=utf-8
-
-    if has ('x') && has ('gui') " On Linux use + register for copy-paste
-        set clipboard=unnamedplus
-    elseif has ('gui')          " On mac and Windows, use * register for copy-paste
-        set clipboard=unnamed
-    endif
-
-    set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
-    set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
 
 " }
 
-" Vim UI {
-
-    if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-        let g:solarized_termcolors=256
-        color solarized                 " Load a colorscheme
-    endif
-        let g:solarized_termtrans=1
-        let g:solarized_contrast="high"
-        let g:solarized_visibility="high"
-    set tabpagemax=15               " Only show 15 tabs
-    set showmode                    " Display the current mode
-
-    set cursorline                  " Highlight current line
-
-    if has('cmdline_info')
-        set ruler                   " Show the ruler
-        set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
-        set showcmd                 " Show partial commands in status line and
-                                    " Selected characters/lines in visual mode
-    endif
-
-    if has('statusline')
-        set laststatus=2
-
-        " Broken down into easily includeable segments
-        set statusline=%<%f\                     " Filename
-        set statusline+=%w%h%m%r                 " Options
-        set statusline+=\ [%{&ff}/%Y]            " Filetype
-        set statusline+=\ [%{getcwd()}]          " Current dir
-        set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-    endif
-
-    set backspace=indent,eol,start  " Backspace for dummies
-    set linespace=0                 " No extra spaces between rows
-    set nonu                        " Line numbers off
-    set showmatch                   " Show matching brackets/parenthesis
-    set incsearch                   " Find as you type search
-    set hlsearch                    " Highlight search terms
-    set winminheight=0              " Windows can be 0 line high
-    set ignorecase                  " Case insensitive search
-    set smartcase                   " Case sensitive when uc present
-    set wildmenu                    " Show list instead of just completing
-    set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
-    set scrolljump=5                " Lines to scroll when cursor leaves screen
-    set scrolloff=3                 " Minimum lines to keep above and below cursor
-
-" }
 
 " Formatting {
 
@@ -129,13 +44,9 @@
     " Easier creating tabs
     map <leader>t :tabnew<CR>
 
-    " Easier trimming white spaces
-    map <leader>tr :%s/\s\+$//<CR>
-
     " Easier moving in tabs
     " The lines conflict with the default digraph mapping of <C-K>
     " If you prefer that functionality, add let g:no_easyWindows = 1
-
     if !exists('g:no_easyWindows')
         map <C-J> <C-W>j
         map <C-K> <C-W>k
@@ -153,149 +64,78 @@
         map <S-L> gt
     endif
 
-    " Wrapped lines goes down/up to next row, rather than next line in file.
-    nnoremap j gj
-    nnoremap k gk
-
-    " Stupid shift key fixes
-    if !exists('g:no_keyfixes')
-        if has("user_commands")
-            command! -bang -nargs=* -complete=file E e<bang> <args>
-            command! -bang -nargs=* -complete=file W w<bang> <args>
-            command! -bang -nargs=* -complete=file Wq wq<bang> <args>
-            command! -bang -nargs=* -complete=file WQ wq<bang> <args>
-            command! -bang Wa wa<bang>
-            command! -bang WA wa<bang>
-            command! -bang Q q<bang>
-            command! -bang QA qa<bang>
-            command! -bang Qa qa<bang>
-        endif
-
-        cmap Tabe tabe
-    endif
-
-    " Yank from the cursor to the end of the line, to be consistent with C and D.
-    nnoremap Y y$
-
     " Toggle search highlighting
     nmap <silent> <leader>/ :set invhlsearch<CR>
-
-    " Shortcuts
-    " Change Working Directory to that of the current file
-    cmap cwd lcd %:p:h
-    cmap cd. lcd %:p:h
-
-    " Visual shifting (does not exit Visual mode)
-    vnoremap < <gv
-    vnoremap > >gv
-
-    " Fix home and end keybindings for screen, particularly on mac
-    " - for some reason this fixes the arrow keys too. huh.
-    map [F $
-    imap [F $
-    map [H g0
-    imap [H g0
-
-    " For when you forget to sudo.. Really Write the file.
-    cmap w!! w !sudo tee % >/dev/null
-
-    " Adjust viewports to the same size
-    map <leader>= <C-w>=
 
     " Map <leader>fr to find and replace all words under the cursor in this file with 's'
     nmap <leader>fr :%s/\<<C-r><C-w>\>/s/gc
 
-    " Easier horizontal scrolling
-    map zl zL
-    map zh zH
-
 " }
 
 " Plugins {
+    " Get vim-plug first at https://github.com/junegunn/vim-plug
+    call plug#begin('~/.vim/plugged')
 
-    if filereadable(expand("~/.vimrc.bundles"))
-    " Misc {
-        let g:NERDShutUp=1
-        let b:match_ignorecase = 1
-    " }
-
-    " Ctags {
-        set tags=./tags;/,~/.vimtags
-    " }
-
-    " SrcExpl {
-        map <C-x> :SrcExplToggle<CR>
-        let g:SrcExpl_isUpdateTags = 0
-        let g:SrcExpl_updateTagsKey = "<F5>"
-    " }
-
-    " Unite.vim { (<C-l> for refreshing cache
-        nnoremap <C-p> :Unite -start-insert file_rec/async<CR>
-        call unite#filters#matcher_default#use(['matcher_fuzzy'])
-        call unite#filters#sorter_default#use(['sorter_rank'])
-
-        nnoremap <SPACE>/ :Unite -no-quit -keep-focus grep:.<CR>
-        if executable('ag')
-            let g:unite_source_rec_async_command =
-            \ ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
-            let g:unite_source_grep_command = 'ag'
-            let g:unite_source_grep_default_opts =
-            \ '-i --line-numbers --nocolor --nogroup --hidden '
-            let g:unite_source_grep_recursive_opt = ''
-        endif
-    " }
-
-    " EasyGrep {
-        let g:EasyGrepRecursive = 1
-    " }
-
-    " Syntastic {
-        au BufRead,BufNewFile *.json set filetype=json
-    " }
-
-    " NerdTree {
-        map <C-a> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
-        map <leader>e :NERDTreeFind<CR>
-        nmap <leader>nt :NERDTreeFind<CR>
-
-        let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
-        let NERDTreeChDirMode=0
-        let NERDTreeMouseMode=2
-        let NERDTreeShowHidden=1
-        let NERDTreeKeepTreeInNewTab=1
-        let g:nerdtree_tabs_open_on_gui_startup=0
-        let g:NERDTreeDirArrows=0
-    " }
-
-    " TagBar {
-        nnoremap <silent> <leader>tt :TagbarToggle<CR>
-    "}
-
-    " autoformat {
-        noremap <c-f> :Autoformat<cr>
-    " }
+    " list only the plugin groups you will use
+    if !exists('g:bundle_groups')
+        let g:bundle_groups=['general', 'programming', 'misc']
     endif
 
-" }
+    " General
+        if count(g:bundle_groups, 'general')
+            Plug 'altercation/vim-colors-solarized'
+            Plug 'bling/vim-airline'
+            Plug 'scrooloose/nerdtree'
+            Plug 'jistr/vim-nerdtree-tabs'
+                map <C-a> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+                map <leader>e :NERDTreeFind<CR>
+                nmap <leader>nt :NERDTreeFind<CR>
+                let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+                let NERDTreeChDirMode=0
+                let NERDTreeMouseMode=2
+                let NERDTreeShowHidden=1
+                let NERDTreeKeepTreeInNewTab=1
+                let g:nerdtree_tabs_open_on_gui_startup=0
+                let g:NERDTreeDirArrows=0
+        endif
 
-" GUI Settings {
+    " General Programming
+        if count(g:bundle_groups, 'programming')
+            Plug 'Shougo/denite.nvim', { 'do': 'pip3 install neovim' }
+                nnoremap <C-p> :Denite file_rec<CR>
+                nnoremap <SPACE>/ :Denite -no-quit grep:.<CR>
+            Plug 'dkprice/vim-easygrep'
+                let g:EasyGrepRecursive = 1
+            Plug 'scrooloose/syntastic'
+                au BufRead,BufNewFile *.json set filetype=json
+                let g:syntastic_javascript_checkers = ['eslint']
+            Plug 'Chiel92/vim-autoformat'
+                noremap <c-b> :Autoformat<cr>
+            Plug 'ervandew/supertab'
+            Plug 'will133/vim-dirdiff'
+        endif
 
-    " GVIM- (here instead of .gvimrc)
-    if has('gui_running')
-        set guioptions-=T           " Remove the toolbar
-        set lines=40                " 40 lines of text instead of 24
-        if has("gui_gtk2")
-            set guifont=Andale\ Mono\ Regular\ 16,Menlo\ Regular\ 15,Consolas\ Regular\ 16,Courier\ New\ Regular\ 18
-        else
-            set guifont=Andale\ Mono\ Regular:h16,Menlo\ Regular:h15,Consolas\ Regular:h16,Courier\ New\ Regular:h18
+    " Misc
+        if count(g:bundle_groups, 'misc')
         endif
-        if has('gui_macvim')
-            set transparency=5      " Make the window slightly transparent
-        endif
-    else
-        if &term == 'xterm' || &term == 'screen'
-            set t_Co=256            " Enable 256 colors to make xterm vim shine
-        endif
+    
+    " Initialize plugin system
+    call plug#end()
+
+    " Customize plugins with vim-plug
+    call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
+    call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
+    call denite#custom#map('insert', '<C-u>', '<denite:scroll_page_backwards>', 'noremap')
+    call denite#custom#map('insert', '<C-d>', '<denite:scroll_page_forwards>', 'noremap')
+    call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy'])
+    call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
+    if executable('pt')
+        call denite#custom#var('file_rec', 'command', ['pt', '--follow', '--nocolor', '--nogroup', '-l', ''])
+        call denite#custom#var('grep', 'command', ['pt'])
+        call denite#custom#var('grep', 'default_opts', ['--nogroup', '--nocolor', '--smart-case'])
+        call denite#custom#var('grep', 'recursive_opts', [])
+        call denite#custom#var('grep', 'pattern-opt', [])
+        call denite#custom#var('grep', 'separator', ['--'])
+        call denite#custom#var('grep', 'final-opts', [''])
     endif
-
 " }
