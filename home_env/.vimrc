@@ -108,7 +108,7 @@
                 let g:EasyGrepRecursive = 1
             Plug 'scrooloose/syntastic'
                 au BufRead,BufNewFile *.json set filetype=json
-                let g:syntastic_javascript_checkers = ['eslint']
+                let g:syntastic_javascript_checkers = ['flow']
             Plug 'Chiel92/vim-autoformat'
                 noremap <c-b> :Autoformat<cr>
             Plug 'ervandew/supertab'
