@@ -110,7 +110,7 @@
                 au BufRead,BufNewFile *.json set filetype=json
                 let g:syntastic_javascript_checkers = ['flow']
             Plug 'Chiel92/vim-autoformat'
-                noremap <c-b> :Autoformat<cr>
+                noremap <C-i> :Autoformat<cr>
             Plug 'ervandew/supertab'
             Plug 'will133/vim-dirdiff'
         endif
