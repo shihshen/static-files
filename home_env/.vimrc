@@ -102,7 +102,7 @@
 
     " General Programming
         if count(g:bundle_groups, 'programming')
-            Plug 'Shougo/denite.nvim', { 'do': 'pip3 install neovim' }
+            Plug 'Shougo/denite.nvim', { 'do': 'sudo pip3 install neovim' }
                 nnoremap <C-p> :Denite file_rec<CR>
                 nnoremap <SPACE>/ :Denite -no-quit grep:.<CR>
             Plug 'dkprice/vim-easygrep'
