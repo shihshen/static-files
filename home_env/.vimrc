@@ -26,6 +26,8 @@
     set softtabstop=2               " Let backspace delete indent
     set pastetoggle=<F6>            " pastetoggle (sane indentation on pastes)
     set mouse=                      " Enable mouse
+    set ignorecase                  " Smart search
+    set smartcase
 
 " }
 
@@ -68,9 +70,6 @@
     " Continuous indentation
     vnoremap < <gv
     vnoremap > >gv
-
-    " Toggle search highlighting
-    nmap <silent> <leader>/ :set invhlsearch<CR>
 
     " Map <leader>fr to find and replace all words under the cursor in this file with 's'
     nmap <leader>fr :%s/\<<C-r><C-w>\>/s/gc
