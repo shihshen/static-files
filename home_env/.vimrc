@@ -45,7 +45,7 @@
     " Easier creating tabs
     map <leader>t :tabnew<CR>
 
-    " Easier moving in tabs
+    " Easier moving in windows
     " The lines conflict with the default digraph mapping of <C-K>
     " If you prefer that functionality, add let g:no_easyWindows = 1
     if !exists('g:no_easyWindows')
@@ -64,6 +64,10 @@
         map <S-H> gT
         map <S-L> gt
     endif
+
+    " Continuous indentation
+    vnoremap < <gv
+    vnoremap > >gv
 
     " Toggle search highlighting
     nmap <silent> <leader>/ :set invhlsearch<CR>
