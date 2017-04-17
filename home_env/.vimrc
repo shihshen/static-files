@@ -136,7 +136,7 @@
     if executable('pt')
         call denite#custom#var('file_rec', 'command', ['pt', '--follow', '--nocolor', '--nogroup', '-l', ''])
         call denite#custom#var('grep', 'command', ['pt'])
-        call denite#custom#var('grep', 'default_opts', ['--nogroup', '--color', '--smart-case'])
+        call denite#custom#var('grep', 'default_opts', ['--nogroup', '--nocolor', '--smart-case'])
         call denite#custom#var('grep', 'recursive_opts', [])
         call denite#custom#var('grep', 'pattern-opt', [])
         call denite#custom#var('grep', 'separator', ['--'])
