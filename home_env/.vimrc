@@ -107,7 +107,7 @@
         if count(g:bundle_groups, 'programming')
             Plug 'Shougo/denite.nvim', { 'do': 'sudo pip3 install neovim' }
                 nnoremap <C-p> :Denite file_rec<CR>
-                nnoremap <SPACE>/ :Denite -no-quit grep:.<CR>
+                nnoremap <SPACE>/ :Denite grep:.<CR>
             Plug 'dkprice/vim-easygrep'
                 let g:EasyGrepRecursive = 1
             Plug 'scrooloose/syntastic'
@@ -136,15 +136,15 @@
     if executable('pt')
         call denite#custom#var('file_rec', 'command', ['pt', '--follow', '--nocolor', '--nogroup', '-l', ''])
         call denite#custom#var('grep', 'command', ['pt'])
-        call denite#custom#var('grep', 'default_opts', ['--nogroup', '--nocolor', '--smart-case'])
+        call denite#custom#var('grep', 'default_opts', ['--nogroup', '--color', '--smart-case'])
         call denite#custom#var('grep', 'recursive_opts', [])
         call denite#custom#var('grep', 'pattern-opt', [])
         call denite#custom#var('grep', 'separator', ['--'])
         call denite#custom#var('grep', 'final-opts', [''])
     elseif executable('ag')
+      call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
       call denite#custom#var('grep', 'command', ['ag'])
-      call denite#custom#var('grep', 'default_opts',
-          \ ['-i', '--vimgrep'])
+      call denite#custom#var('grep', 'default_opts', ['-i'])
       call denite#custom#var('grep', 'recursive_opts', [])
       call denite#custom#var('grep', 'pattern_opt', [])
       call denite#custom#var('grep', 'separator', ['--'])
