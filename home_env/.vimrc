@@ -55,6 +55,10 @@
         map <C-K> <C-W>k
         map <C-L> <C-W>l
         map <C-H> <C-W>h
+        if has('nvim')
+          " Hack to get C-h working in NeoVim
+          nmap <BS> <C-W>h
+        endif
     endif
 
     " Easier moving in tabs
