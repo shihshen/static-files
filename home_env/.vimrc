@@ -111,7 +111,7 @@
         if count(g:bundle_groups, 'programming')
             Plug 'Shougo/denite.nvim', { 'do': 'pip3 install neovim' }
                 nnoremap <C-p> :Denite file_rec<CR>
-                nnoremap <SPACE>/ :Denite grep:.<CR>
+                nnoremap <SPACE>/ :Denite -no-quit grep<CR>
             Plug 'dkprice/vim-easygrep'
                 let g:EasyGrepRecursive = 1
             Plug 'scrooloose/syntastic'
