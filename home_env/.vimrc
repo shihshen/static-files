@@ -95,7 +95,7 @@
             Plug 'bling/vim-airline'
             Plug 'scrooloose/nerdtree'
             Plug 'jistr/vim-nerdtree-tabs'
-                map <C-a> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+                map <C-\> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
                 map <leader>e :NERDTreeFind<CR>
                 nmap <leader>nt :NERDTreeFind<CR>
                 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
