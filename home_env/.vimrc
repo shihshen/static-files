@@ -117,6 +117,10 @@
             Plug 'scrooloose/syntastic'
                 au BufRead,BufNewFile *.json set filetype=json
                 let g:syntastic_javascript_checkers = ['flow']
+                let g:syntastic_mode_map = {
+                  \ "mode": "active",
+                  \ "passive_filetypes": ["python"]
+                  \}
             Plug 'Chiel92/vim-autoformat'
                 noremap <C-i> :Autoformat<cr>
             Plug 'ervandew/supertab'
