@@ -67,8 +67,8 @@
     " If you prefer that functionality, add the following line
     "   let g:no_fastTabs = 1
     if !exists('g:no_fastTabs')
-        map <S-H> gT
-        map <S-L> gt
+        map <S-E> gT
+        map <S-R> gt
     endif
 
     " Continuous indentation
@@ -112,8 +112,7 @@
             Plug 'Shougo/denite.nvim', { 'do': 'pip3 install neovim' }
                 nnoremap <C-p> :Denite file_rec<CR>
                 nnoremap <SPACE>/ :Denite -no-quit grep<CR>
-            Plug 'dkprice/vim-easygrep'
-                let g:EasyGrepRecursive = 1
+            Plug 'mhinz/vim-grepper'
             Plug 'scrooloose/syntastic'
                 au BufRead,BufNewFile *.json set filetype=json
                 let g:syntastic_javascript_checkers = ['flow']
