@@ -42,8 +42,6 @@
         let mapleader=g:leader
     endif
 
-    " Easier entering commands
-    nnoremap ; :
     " Easier creating tabs
     map <leader>t :tabnew<CR>
 
