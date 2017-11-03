@@ -42,8 +42,6 @@
         let mapleader=g:leader
     endif
 
-    " Easier entering commands
-    nnoremap ; :
     " Easier creating tabs
     map <leader>t :tabnew<CR>
 
@@ -109,10 +107,12 @@
 
     " General Programming
         if count(g:bundle_groups, 'programming')
-            Plug 'Shougo/denite.nvim', { 'do': 'pip3 install neovim' }
-                nnoremap <C-p> :Denite file_rec<CR>
-                nnoremap <SPACE>/ :Denite -no-quit grep<CR>
+            Plug 'junegunn/fzf', { 'do': './install --bin' }
+                nnoremap <C-P> :FZF<CR>
             Plug 'mhinz/vim-grepper'
+                if executable('ag')
+                    nnoremap <SPACE>/ :GrepperAg 
+                endif
             Plug 'scrooloose/syntastic'
                 au BufRead,BufNewFile *.json set filetype=json
                 let g:syntastic_javascript_checkers = ['flow']
@@ -121,7 +121,7 @@
                   \ "passive_filetypes": ["python"]
                   \}
             Plug 'Chiel92/vim-autoformat'
-                noremap <C-i> :Autoformat<cr>
+                noremap <C-i> :Autoformat<CR>
             Plug 'ervandew/supertab'
             Plug 'will133/vim-dirdiff'
         endif
@@ -133,31 +133,4 @@
     " Initialize plugin system
     call plug#end()
 
-    " Customize plugins with vim-plug
-    call denite#custom#option('_', 'highlight_mode_insert', 'CursorLine')
-    call denite#custom#option('_', 'highlight_matched_range', 'None')
-    call denite#custom#option('_', 'highlight_matched_char', 'None')
-    call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
-    call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
-    call denite#custom#map('insert', '<C-u>', '<denite:scroll_page_backwards>', 'noremap')
-    call denite#custom#map('insert', '<C-d>', '<denite:scroll_page_forwards>', 'noremap')
-    call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy'])
-    call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
-    if executable('pt')
-        call denite#custom#var('file_rec', 'command', ['pt', '--follow', '--nocolor', '--nogroup', '-l', ''])
-        call denite#custom#var('grep', 'command', ['pt'])
-        call denite#custom#var('grep', 'default_opts', ['--nogroup', '--nocolor', '--smart-case'])
-        call denite#custom#var('grep', 'recursive_opts', [])
-        call denite#custom#var('grep', 'pattern-opt', [])
-        call denite#custom#var('grep', 'separator', ['--'])
-        call denite#custom#var('grep', 'final-opts', [''])
-    elseif executable('ag')
-      call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-      call denite#custom#var('grep', 'command', ['ag'])
-      call denite#custom#var('grep', 'default_opts', ['-i'])
-      call denite#custom#var('grep', 'recursive_opts', [])
-      call denite#custom#var('grep', 'pattern_opt', [])
-      call denite#custom#var('grep', 'separator', ['--'])
-      call denite#custom#var('grep', 'final_opts', [])
-    endif
 " }
