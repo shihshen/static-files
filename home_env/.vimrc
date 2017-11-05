@@ -112,6 +112,8 @@
             Plug 'mhinz/vim-grepper'
                 if executable('ag')
                     nnoremap <SPACE>/ :GrepperAg 
+                else
+                    nnoremap <SPACE>/ :Grepper 
                 endif
             Plug 'scrooloose/syntastic'
                 au BufRead,BufNewFile *.json set filetype=json
