@@ -123,7 +123,6 @@
                   \ "passive_filetypes": ["python"]
                   \}
             Plug 'Chiel92/vim-autoformat'
-                noremap <C-i> :Autoformat<CR>
             Plug 'ervandew/supertab'
             Plug 'will133/vim-dirdiff'
         endif
