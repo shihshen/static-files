@@ -20,10 +20,10 @@
 " Formatting {
 
     set autoindent                  " Indent at the same level of the previous line
-    set shiftwidth=2                " Use indents of 2 spaces
+    set shiftwidth=4                " Use indents of 2 spaces
     set expandtab                   " Tabs are spaces, not tabs
-    set tabstop=2                   " An indentation every 2 columns
-    set softtabstop=2               " Let backspace delete indent
+    set tabstop=4                   " An indentation every 2 columns
+    set softtabstop=4               " Let backspace delete indent
     set pastetoggle=<F6>            " pastetoggle (sane indentation on pastes)
     set mouse=                      " Enable mouse
     set ignorecase                  " Smart search
