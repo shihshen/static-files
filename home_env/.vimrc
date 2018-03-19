@@ -12,6 +12,7 @@
     filetype plugin indent on   " Automatically detect file types.
     syntax on                   " Syntax highlighting
     set noswapfile              " Disable swap file.
+    set nobackup                " Disable backup file.
     scriptencoding utf-8
 
 " }
