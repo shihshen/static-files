@@ -111,6 +111,9 @@
         if count(g:bundle_groups, 'programming')
             Plug 'junegunn/fzf', { 'do': './install --bin' }
                 nnoremap <C-P> :FZF<CR>
+                if executable('ag')
+                  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+                endif
             Plug 'mhinz/vim-grepper'
                 if executable('ag')
                     nnoremap <SPACE>/ :GrepperAg 
