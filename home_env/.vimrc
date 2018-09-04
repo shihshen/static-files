@@ -132,8 +132,6 @@
                 autocmd FileType javascript noremap <buffer>  <c-i> :call JsBeautify()<cr>
                 " for json
                 autocmd FileType json noremap <buffer> <c-i> :call JsonBeautify()<cr>
-                " for jsx
-                autocmd FileType jsx noremap <buffer> <c-i> :call JsxBeautify()<cr>
                 " for html
                 autocmd FileType html noremap <buffer> <c-i> :call HtmlBeautify()<cr>
                 " for css or scss
