@@ -25,7 +25,6 @@
     set expandtab                   " Tabs are spaces, not tabs
     set tabstop=4                   " An indentation every 2 columns
     set softtabstop=4               " Let backspace delete indent
-    set pastetoggle=<F6>            " pastetoggle (sane indentation on pastes)
     set ignorecase                  " Smart search
     set smartcase
 
