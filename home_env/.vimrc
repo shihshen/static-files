@@ -27,6 +27,7 @@
     set softtabstop=4               " Let backspace delete indent
     set ignorecase                  " Smart search
     set smartcase
+    set mouse=v
 
 " }
 
