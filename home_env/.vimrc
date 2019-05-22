@@ -139,7 +139,7 @@
             Plug 'google/vim-maktaba'
             Plug 'google/vim-codefmt'
             Plug 'google/vim-glaive'
-            augroup autoformat_settings
+            augroup autoformat_settings " FormatCode is the command to format file manually
                 autocmd FileType bzl AutoFormatBuffer buildifier
                 autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
                 autocmd FileType dart AutoFormatBuffer dartfmt
