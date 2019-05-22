@@ -128,23 +128,29 @@
                   \ "mode": "active",
                   \ "passive_filetypes": ["python"]
                   \}
-            "Plug 'Chiel92/vim-autoformat' " python support required
-            Plug 'maksimr/vim-jsbeautify', { 'do': 'git submodule update --init --recursive'}
-                autocmd FileType javascript noremap <buffer>  <c-i> :call JsBeautify()<cr>
-                " for json
-                autocmd FileType json noremap <buffer> <c-i> :call JsonBeautify()<cr>
-                " for html
-                autocmd FileType html noremap <buffer> <c-i> :call HtmlBeautify()<cr>
-                " for css or scss
-                autocmd FileType css noremap <buffer> <c-i> :call CSSBeautify()<cr>
             Plug 'ervandew/supertab'
             Plug 'will133/vim-dirdiff'
         endif
 
     " Misc
         if count(g:bundle_groups, 'misc')
-            Plug 'artur-shaik/vim-javacomplete2'
+            Plug 'artur-shaik/vim-javacomplete2' " Python is required
             autocmd FileType java setlocal omnifunc=javacomplete#Complete
+            Plug 'google/vim-maktaba'
+            Plug 'google/vim-codefmt'
+            Plug 'google/vim-glaive'
+            augroup autoformat_settings
+                autocmd FileType bzl AutoFormatBuffer buildifier
+                autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
+                autocmd FileType dart AutoFormatBuffer dartfmt
+                autocmd FileType go AutoFormatBuffer gofmt
+                autocmd FileType gn AutoFormatBuffer gn
+                autocmd FileType javascript,html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+                autocmd FileType java AutoFormatBuffer google-java-format
+                autocmd VimEnter * Glaive codefmt google_java_executable="java -jar /home/sshen/sandy/google-java-format-1.7-all-deps.jar"
+                autocmd FileType python AutoFormatBuffer yapf
+                " Alternative: autocmd FileType python AutoFormatBuffer autopep8
+            augroup END
         endif
     
     " Initialize plugin system
