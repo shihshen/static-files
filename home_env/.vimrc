@@ -26,9 +26,9 @@
     set tabstop=2                   " An indentation every 2 columns
     set softtabstop=2               " Let backspace delete indent
     set pastetoggle=<F6>            " pastetoggle (sane indentation on pastes)
+    set mouse=v                     " Enable mouse for copying
     set ignorecase                  " Smart search
     set smartcase
-    set mouse=v
 
 " }
 
@@ -113,7 +113,7 @@
             Plug 'junegunn/fzf', { 'do': './install --bin' }
                 nnoremap <C-P> :FZF<CR>
                 if executable('ag')
-                  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+                    let $FZF_DEFAULT_COMMAND = 'ag -g ""'
                 endif
             Plug 'mhinz/vim-grepper'
                 if executable('ag')
@@ -143,6 +143,8 @@
 
     " Misc
         if count(g:bundle_groups, 'misc')
+            Plug 'artur-shaik/vim-javacomplete2'
+            autocmd FileType java setlocal omnifunc=javacomplete#Complete
         endif
     
     " Initialize plugin system
