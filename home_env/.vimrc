@@ -134,7 +134,7 @@
 
     " Misc
         if count(g:bundle_groups, 'misc')
-            Plug 'artur-shaik/vim-javacomplete2' " Python is required
+            " Auto format/indent
             autocmd FileType java setlocal omnifunc=javacomplete#Complete
             Plug 'google/vim-maktaba'
             Plug 'google/vim-codefmt'
@@ -151,6 +151,8 @@
                 autocmd FileType python AutoFormatBuffer yapf
                 " Alternative: autocmd FileType python AutoFormatBuffer autopep8
             augroup END
+            " Auto complete
+            Plug 'artur-shaik/vim-javacomplete2' " Python is required
             if has('nvim')
               Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
             else
