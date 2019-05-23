@@ -147,7 +147,7 @@
                 autocmd FileType gn AutoFormatBuffer gn
                 autocmd FileType javascript,html,css,sass,scss,less,json AutoFormatBuffer js-beautify
                 autocmd FileType java AutoFormatBuffer google-java-format
-                autocmd VimEnter * Glaive codefmt google_java_executable="java -jar /home/sshen/sandy/google-java-format-1.7-all-deps.jar"
+                autocmd VimEnter * Glaive codefmt google_java_executable="java -jar ~/google-java-format-1.7-all-deps.jar"
                 autocmd FileType python AutoFormatBuffer yapf
                 " Alternative: autocmd FileType python AutoFormatBuffer autopep8
             augroup END
