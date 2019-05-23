@@ -85,7 +85,7 @@
 
     " list only the plugin groups you will use
     if !exists('g:bundle_groups')
-        let g:bundle_groups=['general', 'programming', 'misc']
+        let g:bundle_groups=['general', 'programming']
     endif
 
     " General
@@ -128,7 +128,7 @@
                   \ "mode": "active",
                   \ "passive_filetypes": ["python"]
                   \}
-            Plug 'ervandew/supertab'
+            Plug 'ervandew/supertab' " Comment this if you would like to have autocomplete below
             Plug 'will133/vim-dirdiff'
         endif
 
@@ -151,6 +151,14 @@
                 autocmd FileType python AutoFormatBuffer yapf
                 " Alternative: autocmd FileType python AutoFormatBuffer autopep8
             augroup END
+            if has('nvim')
+              Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+            else
+              Plug 'Shougo/deoplete.nvim'
+              Plug 'roxma/nvim-yarp'
+              Plug 'roxma/vim-hug-neovim-rpc'
+            endif
+            let g:deoplete#enable_at_startup = 1
         endif
     
     " Initialize plugin system
