@@ -128,7 +128,7 @@
                   \ "mode": "active",
                   \ "passive_filetypes": ["python"]
                   \}
-            Plug 'ervandew/supertab' " Comment this if you would like to have autocomplete below
+            Plug 'ervandew/supertab'
             Plug 'will133/vim-dirdiff'
         endif
 
@@ -154,14 +154,6 @@
             augroup END
             " Auto complete
             Plug 'artur-shaik/vim-javacomplete2' " Python is required
-            if has('nvim')
-              Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-            else
-              Plug 'Shougo/deoplete.nvim'
-              Plug 'roxma/nvim-yarp'
-              Plug 'roxma/vim-hug-neovim-rpc'
-            endif
-            let g:deoplete#enable_at_startup = 1
         endif
     
     " Initialize plugin system
