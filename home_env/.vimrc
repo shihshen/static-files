@@ -128,15 +128,13 @@
                   \ "mode": "active",
                   \ "passive_filetypes": ["python"]
                   \}
-            Plug 'ervandew/supertab'
+            Plug 'zxqfl/tabnine-vim'
             Plug 'will133/vim-dirdiff'
         endif
 
     " Misc
         if count(g:bundle_groups, 'misc')
             " Auto format/indent
-            Plug 'artur-shaik/vim-javacomplete2' " Python is required
-            autocmd FileType java setlocal omnifunc=javacomplete#Complete
             Plug 'google/vim-maktaba'
             Plug 'google/vim-codefmt'
             Plug 'google/vim-glaive'
@@ -154,6 +152,7 @@
             augroup END
             " Auto complete
             Plug 'artur-shaik/vim-javacomplete2' " Python is required
+            autocmd FileType java setlocal omnifunc=javacomplete#Complete
         endif
     
     " Initialize plugin system
