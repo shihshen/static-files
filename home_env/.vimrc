@@ -128,7 +128,7 @@
                   \ "mode": "active",
                   \ "passive_filetypes": ["python"]
                   \}
-            " tabnine (high memory consumption), deoplete (unstable) and youcompleteme (complicated installation) have their own issues
+            " Autocomplet: tabnine (high memory consumption), deoplete (unstable) and youcompleteme (complicated installation) have their own issues
             Plug 'neoclide/coc.nvim', {'branch': 'release'}
             Plug 'will133/vim-dirdiff'
         endif
@@ -151,9 +151,6 @@
                 autocmd FileType python AutoFormatBuffer yapf
                 " Alternative: autocmd FileType python AutoFormatBuffer autopep8
             augroup END
-            " Auto complete
-            Plug 'artur-shaik/vim-javacomplete2' " Python is required
-            autocmd FileType java setlocal omnifunc=javacomplete#Complete
         endif
     
     " Initialize plugin system
