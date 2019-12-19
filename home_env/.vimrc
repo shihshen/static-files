@@ -128,7 +128,8 @@
                   \ "mode": "active",
                   \ "passive_filetypes": ["python"]
                   \}
-            Plug 'zxqfl/tabnine-vim'
+            " tabnine (high memory consumption), deoplete (unstable) and youcompleteme (complicated installation) have their own issues
+            Plug 'neoclide/coc.nvim', {'branch': 'release'}
             Plug 'will133/vim-dirdiff'
         endif
 
