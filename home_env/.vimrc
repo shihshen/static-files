@@ -111,7 +111,9 @@
     " General Programming
         if count(g:bundle_groups, 'programming')
             Plug 'junegunn/fzf', { 'do': './install --bin' }
+            Plug 'junegunn/fzf.vim'
                 nnoremap <C-P> :FZF<CR>
+                let g:fzf_buffers_jump = 1
                 if executable('ag')
                     let $FZF_DEFAULT_COMMAND = 'ag -g ""'
                 endif
@@ -128,7 +130,7 @@
                   \ "mode": "active",
                   \ "passive_filetypes": ["python"]
                   \}
-            " Autocomplet: tabnine (high memory consumption), deoplete (unstable) and youcompleteme (complicated installation) have their own issues
+            " Autocomplete: tabnine (high memory consumption), deoplete (unstable) and youcompleteme (complicated installation) have their own issues
             Plug 'neoclide/coc.nvim', {'branch': 'release'}
             Plug 'will133/vim-dirdiff'
         endif
