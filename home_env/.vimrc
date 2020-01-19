@@ -109,13 +109,15 @@
 
     " General Programming
         if count(g:bundle_groups, 'programming')
-            Plug 'junegunn/fzf', { 'do': './install --bin' }
-            Plug 'junegunn/fzf.vim'
-                nnoremap <C-P> :FZF<CR>
-                let g:fzf_buffers_jump = 1
-                if executable('ag')
-                    let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-                endif
+            Plug 'ctrlpvim/ctrlp.vim'
+            if executable('rg')
+              let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+            endif
+            let g:ctrlp_switch_buffer = 'ET'
+            let g:ctrlp_prompt_mappings = { 
+                  \ 'AcceptSelection("e")': ['<c-t>', '<2-LeftMouse>'],
+                  \ 'AcceptSelection("t")': ['<cr>']
+                  \ }
             Plug 'mhinz/vim-grepper'
                 if executable('ag')
                     nnoremap <SPACE>/ :GrepperAg 
