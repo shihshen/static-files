@@ -131,8 +131,8 @@
                   \ "mode": "active",
                   \ "passive_filetypes": ["python"]
                   \}
-            " Autocomplete: tabnine (high memory consumption), deoplete (unstable) and youcompleteme (complicated installation) have their own issues
-            Plug 'neoclide/coc.nvim', {'branch': 'release'}
+            " Autocomplete: tabnine (high memory consumption), deoplete (unstable), youcompleteme (complicated installation) have their own issues for now.
+            Plug 'ervandew/supertab'
             Plug 'will133/vim-dirdiff'
         endif
 
