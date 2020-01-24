@@ -65,8 +65,8 @@
     " If you prefer that functionality, add the following line
     "   let g:no_fastTabs = 1
     if !exists('g:no_fastTabs')
-        map <S-H> gT
-        map <S-L> gt
+        map <S-E> gT
+        map <S-R> gt
     endif
 
     " Continuous indentation
