@@ -25,7 +25,7 @@
     set expandtab                   " Tabs are spaces, not tabs
     set tabstop=2                   " An indentation every 2 columns
     set softtabstop=2               " Let backspace delete indent
-    set mouse=v                     " Enable mouse for copying
+    "set mouse=v                     " Enable mouse for copying. However, mouse may not be supported.
     set ignorecase                  " Smart search
     set smartcase
 
