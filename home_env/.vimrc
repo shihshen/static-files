@@ -111,7 +111,7 @@
         if count(g:bundle_groups, 'programming')
             Plug 'ctrlpvim/ctrlp.vim'
             if executable('rg')
-              let g:ctrlp_user_command = 'rg %s --files --no-ignore --color=never --glob ""'
+              let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
             endif
             let g:ctrlp_switch_buffer = 'ET'
             let g:ctrlp_prompt_mappings = { 
