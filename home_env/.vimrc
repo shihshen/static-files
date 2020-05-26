@@ -124,13 +124,6 @@
                 else
                     nnoremap <SPACE>/ :Grepper 
                 endif
-            Plug 'scrooloose/syntastic'
-                au BufRead,BufNewFile *.json set filetype=json
-                let g:syntastic_javascript_checkers = ['flow']
-                let g:syntastic_mode_map = {
-                  \ "mode": "active",
-                  \ "passive_filetypes": ["python"]
-                  \}
             " Autocomplete: tabnine (high memory consumption), deoplete (unstable), youcompleteme (complicated installation) have their own issues for now.
             Plug 'ervandew/supertab'
             Plug 'will133/vim-dirdiff'
