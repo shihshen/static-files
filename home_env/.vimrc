@@ -13,6 +13,7 @@
     syntax on                   " Syntax highlighting
     set noswapfile              " Disable swap file.
     set nobackup                " Disable backup file.
+    set hidden
     scriptencoding utf-8
 
 " }
@@ -92,17 +93,13 @@
             Plug 'altercation/vim-colors-solarized'
             Plug 'bling/vim-airline'
             Plug 'scrooloose/nerdtree'
-            Plug 'jistr/vim-nerdtree-tabs'
                 map <leader>n :NERDTreeToggle<CR>:NERDTreeMirror<CR>
                 map <leader>e :NERDTreeFind<CR>
                 nmap <leader>nt :NERDTreeFind<CR>
                 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
-                let NERDTreeChDirMode=0
                 let NERDTreeMouseMode=2
                 let NERDTreeShowHidden=1
-                let NERDTreeKeepTreeInNewTab=1
-                let g:nerdtree_tabs_open_on_gui_startup=0
-                let g:NERDTreeDirArrows=0
+                let g:NERDTreeQuitOnOpen=1
                 let g:NERDTreeDirArrowExpandable = ">"
                 let g:NERDTreeDirArrowCollapsible = "<"
         endif
@@ -113,6 +110,7 @@
             if executable('rg')
               let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
             endif
+            let g:ctrlp_working_path_mode = 'ra'
             let g:ctrlp_switch_buffer = 'ET'
             let g:ctrlp_prompt_mappings = { 
                   \ 'AcceptSelection("e")': ['<c-t>', '<2-LeftMouse>'],
