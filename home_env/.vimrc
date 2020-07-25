@@ -96,9 +96,9 @@
                 map <leader>n :NERDTreeToggle<CR>:NERDTreeMirror<CR>
                 map <leader>e :NERDTreeFind<CR>
                 nmap <leader>nt :NERDTreeFind<CR>
-                let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
-                let NERDTreeMouseMode=2
-                let NERDTreeShowHidden=1
+                let g:NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+                let g:NERDTreeMouseMode=2
+                let g:NERDTreeShowHidden=1
                 let g:NERDTreeQuitOnOpen=1
                 let g:NERDTreeDirArrowExpandable = ">"
                 let g:NERDTreeDirArrowCollapsible = "<"
