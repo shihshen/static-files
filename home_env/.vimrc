@@ -29,6 +29,7 @@
     "set mouse=v                     " Enable mouse for copying. However, mouse may not be supported.
     set ignorecase                  " Smart search
     set smartcase
+    set incsearch
 
 " }
 
