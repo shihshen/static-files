@@ -86,7 +86,7 @@
 
     " list only the plugin groups you will use
     if !exists('g:bundle_groups')
-        let g:bundle_groups=['general', 'programming']
+        let g:bundle_groups=['general', 'programming', 'misc']
     endif
 
     " General
@@ -132,21 +132,8 @@
     " Misc
         if count(g:bundle_groups, 'misc')
             " Auto format/indent
-            Plug 'google/vim-maktaba'
-            Plug 'google/vim-codefmt'
-            Plug 'google/vim-glaive'
-            augroup autoformat_settings " Use :NoAutoFormatBuffer to disable current buffer formatting.
-                autocmd FileType bzl AutoFormatBuffer buildifier
-                autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
-                autocmd FileType dart AutoFormatBuffer dartfmt
-                autocmd FileType go AutoFormatBuffer gofmt
-                autocmd FileType gn AutoFormatBuffer gn
-                autocmd FileType javascript,html,css,sass,scss,less,json AutoFormatBuffer js-beautify
-                autocmd FileType java AutoFormatBuffer google-java-format
-                autocmd VimEnter * Glaive codefmt google_java_executable="java -jar ~/google-java-format-1.7-all-deps.jar"
-                autocmd FileType python AutoFormatBuffer yapf
-                " Alternative: autocmd FileType python AutoFormatBuffer autopep8
-            augroup END
+            Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+            let g:prettier#autoformat = 0 " :Prettier to format/indent the file
         endif
     
     " Initialize plugin system
