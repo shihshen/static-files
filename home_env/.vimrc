@@ -11,6 +11,7 @@
     set background=dark         " Assume a dark background
     filetype plugin indent on   " Automatically detect file types.
     syntax on                   " Syntax highlighting
+    set re=2                    " Abandon old regular expression engine
     set noswapfile              " Disable swap file.
     set nobackup                " Disable backup file.
     set hidden
@@ -110,7 +111,9 @@
         if count(g:bundle_groups, 'programming')
             Plug 'ctrlpvim/ctrlp.vim'
             if executable('rg')
+              set grepprg=rg\ --color=never
               let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+              let g:ctrlp_use_caching = 0
             endif
             let g:ctrlp_working_path_mode = 'ra'
             let g:ctrlp_switch_buffer = 'ET'
