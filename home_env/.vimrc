@@ -135,7 +135,7 @@
     " Misc
         if count(g:bundle_groups, 'misc')
             " Auto format/indent
-            Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+            Plug 'prettier/vim-prettier', { 'do': 'npm install --force' }
             let g:prettier#autoformat = 0 " :Prettier to format/indent the file
         endif
     
