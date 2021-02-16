@@ -122,8 +122,8 @@
                   \ 'AcceptSelection("t")': ['<cr>']
                   \ }
             Plug 'mhinz/vim-grepper'
-                if executable('ag')
-                    nnoremap <SPACE>/ :GrepperAg 
+                if executable('rg')
+                    nnoremap <SPACE>/ :GrepperRg 
                 else
                     nnoremap <SPACE>/ :Grepper 
                 endif
@@ -135,7 +135,7 @@
     " Misc
         if count(g:bundle_groups, 'misc')
             " Auto format/indent
-            Plug 'prettier/vim-prettier', { 'do': 'npm install --force' }
+            Plug 'prettier/vim-prettier', { 'do': 'npm install' }
             let g:prettier#autoformat = 0 " :Prettier to format/indent the file
         endif
     
