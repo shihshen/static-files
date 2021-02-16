@@ -125,7 +125,7 @@
                 if executable('rg')
                     nnoremap <SPACE>/ :GrepperRg 
                 else
-                    nnoremap <SPACE>/ :Grepper 
+                    nnoremap <SPACE>/ :GrepperGrep
                 endif
             " Autocomplete: tabnine (high memory consumption), deoplete (unstable), youcompleteme (complicated installation) have their own issues for now.
             Plug 'ervandew/supertab'
