@@ -10,6 +10,6 @@ GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 precmd() {
-  # sets the tab title to current dir
+  # sets the tab title to current dir for tmux
   echo -ne "\e]1;${PWD##*/}\a"
 }
