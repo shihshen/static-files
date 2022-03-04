@@ -106,6 +106,9 @@
                 let g:NERDTreeShowHidden=1
                 let g:NERDTreeDirArrowExpandable = ">"
                 let g:NERDTreeDirArrowCollapsible = "<"
+            Plug 'godlygeek/tabular'
+            Plug 'preservim/vim-markdown'
+              let g:vim_markdown_folding_disabled = 1
         endif
 
     " General Programming
