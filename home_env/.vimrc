@@ -93,8 +93,7 @@
     " General
         if count(g:bundle_groups, 'general')
             Plug 'altercation/vim-colors-solarized'
-            Plug 'bling/vim-airline'
-                set noshowmode
+            Plug 'vim-airline/vim-airline'
             Plug 'scrooloose/nerdtree'
                 map <leader>n :NERDTreeToggle<CR>:NERDTreeMirror<CR>
                 map <leader>e :NERDTreeFind<CR>
