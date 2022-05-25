@@ -114,7 +114,6 @@
         if count(g:bundle_groups, 'programming')
             Plug 'ctrlpvim/ctrlp.vim'
             if executable('rg')
-              set grepprg=rg\ --color=never
               let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
               let g:ctrlp_use_caching = 0
             endif
@@ -125,11 +124,10 @@
                   \ 'AcceptSelection("t")': ['<cr>']
                   \ }
             Plug 'mhinz/vim-grepper'
-                if executable('rg')
-                    nnoremap <SPACE>/ :GrepperRg 
-                else
-                    nnoremap <SPACE>/ :GrepperGrep
-                endif
+            nnoremap <SPACE>/ :Grepper<cr>
+            if executable('rg')
+              nnoremap <SPACE>/ :Grepper -tool rg<cr>
+            endif
             " Autocomplete: tabnine (high memory consumption), deoplete (unstable), youcompleteme (complicated installation) have their own issues for now.
             Plug 'ervandew/supertab'
             Plug 'will133/vim-dirdiff'
