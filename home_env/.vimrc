@@ -123,16 +123,17 @@
                   \ 'AcceptSelection("e")': ['<c-t>', '<2-LeftMouse>'],
                   \ 'AcceptSelection("t")': ['<cr>']
                   \ }
-            Plug 'mhinz/vim-grepper'
-            nnoremap <SPACE>/ :Grepper<cr>
-            if executable('rg')
-              nnoremap <SPACE>/ :Grepper -tool rg<cr>
-            endif
+            " Grep
+            nnoremap <SPACE>/ :vim<SPACE>
+            augroup myvimrc
+                autocmd!
+                autocmd QuickFixCmdPost [^l]* cwindow
+                autocmd QuickFixCmdPost l*    lwindow
+            augroup END
             " Autocomplete: tabnine (high memory consumption), deoplete (unstable), youcompleteme (complicated installation) have their own issues for now.
             Plug 'ervandew/supertab'
             Plug 'will133/vim-dirdiff'
         endif
-
     " Misc
         if count(g:bundle_groups, 'misc')
             " Auto format/indent
