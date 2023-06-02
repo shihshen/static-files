@@ -27,10 +27,11 @@
     set expandtab                   " Tabs are spaces, not tabs
     set tabstop=2                   " An indentation every 2 columns
     set softtabstop=2               " Let backspace delete indent
-    "set mouse=v                     " Enable mouse for copying. However, mouse may not be supported.
+    "set mouse=v                     " Enable mouse for copying. This can break copy function in macvim
     set ignorecase                  " Smart search
     set smartcase
     set incsearch
+    set hlsearch
 
 " }
 
@@ -130,6 +131,14 @@
                 autocmd QuickFixCmdPost [^l]* cwindow
                 autocmd QuickFixCmdPost l*    lwindow
             augroup END
+            " trying
+            Plug 'mileszs/ack.vim'
+            cnoreabbrev Ack Ack!
+            if executable('rg')
+              let g:ackprg = 'rg --vimgrep'
+              nnoremap <SPACE>/ :Ack!<SPACE>
+            endif
+            " end trying
             " Autocomplete: tabnine (high memory consumption), deoplete (unstable), youcompleteme (complicated installation) have their own issues for now.
             Plug 'ervandew/supertab'
             Plug 'will133/vim-dirdiff'
